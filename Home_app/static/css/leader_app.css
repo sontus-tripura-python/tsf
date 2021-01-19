@@ -1,0 +1,299 @@
+/*---- central scection---*/
+.central_year_section{
+  min-height: 600px;
+}
+.central_leader_list_section{
+  min-height: 600px;
+}
+.central_leeader_detail_section{
+  box-shadow:1px 4px 5px 2px #333d42
+}
+.list_group{
+  margin-bottom: 5px;
+}
+.central_year{
+  width: 200px;
+  height: 150px;
+  float: left;
+  margin-right: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.sessions_year{
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 8px;
+}
+.calendar_logo{
+  height: 60px;
+  width: 60px;
+  box-shadow: 8px 3px 8px #ddd;
+}
+.tsf_logo_branch{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+.central_link:hover{
+text-decoration: none;
+}
+.year_form{
+  margin-top: 50px;
+}
+.branch_name{
+  font-size: 18px;
+  font-style: italic;
+  text-align: center;
+  font-weight: bold;
+}
+.leader_pro_file{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+.leader_name{
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-style: italic;
+  margin-left: 10px;
+}
+.leader_postion{
+  font-size: 22px;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-style: italic;
+  padding: 5px;
+}
+.leader_profile_pic{
+  height: 280px;
+  width: 250px;
+}
+.posting{
+  font-weight: bold;
+  font-style: italic;
+  font-size: 22px;
+}
+/*---- brnahc section css---*/
+.leader-box {
+  border: 2px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 16px;
+  margin: 16px 0
+}
+
+.leader-box::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.leader-box img {
+  float: left;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.leader-box span {
+  font-size: 20px;
+  text-transform: capitalize;
+  margin-right: 15px;
+}
+
+@media (max-width: 500px) {
+  .leader-box {
+      text-align: center;
+  }
+  .leader-box img {
+      margin: auto;
+      float: none;
+      display: block;
+  }
+}
+
+.branch_name_form_section{
+  min-height: 500px;
+}
+.branch_name_list_section{
+  min-height: 600px;
+}
+.branch_year_list_section{
+  min-height: 600px;
+}
+.branch_member_list_section{
+  min-height: 600px;
+}
+.branc_section{
+  overflow: hidden;
+  min-width: 250px;
+  min-height: 150px;
+  float: left;
+
+margin-right: 5px;
+margin-bottom: 5px;
+}
+.branch_tsf_logo{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+.branch_sectiomn_name{
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+}
+.branch_name_link:hover{
+  text-decoration: none;
+}
+.branch_year_link:hover{
+  text-decoration: none;
+}
+/*--- co_ordinator----*/
+.co-ordinator{
+  margin-top: 60px;
+}
+.co_ordinator_photo{
+  height: 80px;
+  width: 80px;
+    border: 2px solid #fff;
+  border-radius: 50%;
+  background: #fff;
+}
+.co_ordinator_section{
+  height: 150px;
+  width: 250px;
+  margin-right: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+
+}
+.co_ordinator_photo_section{
+  text-align: center;
+  margin-top: -50px;
+
+
+}
+.co_ordinator_leader_profile{
+  border-radius: 5px;
+  height: 200px;
+  width: 200px;
+}
+.co_ordinator_short_descriptions{
+  font-style: italic;
+}
+/* ----- central leader section---- */
+
+.membership_section{
+  background: #fff;
+  min-height: 700px;
+  width: 100%;
+  box-shadow:1px 4px 5px 2px #333d42
+}
+.profilepic{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.total_members{
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+}
+.profile_name{
+  font-size: 22px;
+  font-style: italic;
+  text-transform: capitalize;
+
+}
+.name_link:hover{
+    text-decoration: none;
+}
+.user_list{
+  margin-left: 20px;
+}
+.user_profile{
+  margin-bottom: 5px;
+}
+.image-profiles{
+  text-align: center;
+}
+.profile-detail-pic{
+  width: 200px;
+  height: 200px;
+}
+.name{
+  font-style: italic;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.name_of_profile{
+  font-weight: bold;
+  font-style: italic;
+  font-size: 18px;
+}
+.title_name{
+  font-weight: bold;
+  font-style: italic;
+  font-size: 18px;
+}
+.current_enroll{
+  color: green;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+}
+.social_link{
+  font-style: italic;
+}
+.instagramcolor{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  align-items: center;
+  padding: 11px;
+  font-size: 30px;
+  background:#E4405F;
+  color: white;
+}
+.link-IN {
+  background: #007bb5;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  align-items: center;
+  padding: 12px;
+  font-size: 30px;
+}
+.twittercolor {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  align-items: center;
+  padding: 12px;
+  font-size: 30px;
+  background: #55ACEE;
+  color: white;
+}
+.fbcolor {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  align-items: center;
+  padding: 14px;
+  font-size: 30px;
+  background: #3B5998;
+
+  color: white;
+}
+/*-- profile update ---*/
+.navbar_section{
+  margin-bottom: 5px;
+}
+.profilenavbar{
+  background: #2f8ea4;
+}

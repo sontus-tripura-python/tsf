@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block body %}
+<section class="central_leader_list_section">
+  <div class="container">
+    <div class="text-center">
+  <img src="{% static 'img/tsf.jpg' %}" alt="" class="tsf_logo"/ >
+  </div>
+  
+    <h1 class="tsf_name_title">Tripura student Forum, BANGLADESH <br> Central leader</h1>
+    <a href="{% url 'central_member_form' centralyear.pk %}" class="btn btn-primary"> Create Member</a>
+    {% include 'home/messeage.html' %}
+    <div class="row justify-content-center">
+  
+      <div class="col-md-6">
+  
+  {% for member in centralLeader %}
+  <div class="leader-box">
+    <img src="{{ member.photo.url }}" alt="Avatar" style="width:80px">
+    <p> <span> <a href="{% url 'central_leader_details' member.pk %}">{{member.name }}</a></span></p>
+    <p>{{member.Posting }}</p>
+  </div>
+  {% empty %}
+  <div class="alert alert-danger" role="alert">
+    Not added yet..thank you    
+    </div>
+  {% endfor %}
+  </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

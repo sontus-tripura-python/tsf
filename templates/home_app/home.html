@@ -1,0 +1,113 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="loader">
+  <img src="{% static 'img/tsf.jpg' %}" alt="preloading" class="preloading">
+</div>
+<!-- socail icon section -->
+{% include 'home/social.html' %}
+
+<!---- slider section--->
+{% include 'home/slider.html' %}
+<!---- tsf leader section--->
+<div class="container">
+  <marquee width="60%" direction="left" height="40px">
+    <p style="color: red;"> Website is still under development.....</p>
+     </marquee>
+</div>
+
+<section class="tsf_leader_introduction">
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="tsf_president text-center">
+              <img src="{{ about_inform.tsf_president_photo.url }}" alt="" class="tsf_profile_img wow slideInLeft">
+              <p class="tsf_leader_name">{{about_inform.tsf_president_name }}</p>
+                <h2 class="tsf_leadr_postion">{{about_inform.tsf_president_title}}</h2>
+            </div>
+
+
+          </div>
+
+
+
+          <div class="col-md-6">
+            <div class="">
+              <div class="text-center">
+            <img src="{{ about_inform.tsf_logo.url }}" alt="" class="tsf_logo"/ >
+            </div>
+              <h1 class="tsf_name_title">Tripura student Forum, BANGLADESH</h1>
+              <p>{{ about_inform.tsf_about }}</p>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="tsf_president text-center">
+              <img src="{{ about_inform.tsf_secretary_photo.url }}" alt="" class="tsf_profile_img">
+              <p class="tsf_leader_name">{{about_inform.tsf_secretary_name }}</p>
+                <h2 class="tsf_leadr_postion">{{about_inform.tsf_secretary_title}}</h2>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--- glance seciton---->
+<section class="glance_section">
+  <div class="container">
+    <h2 class="glance_title">At a glance</h2>
+    <div class="row justify-content-center">
+    {% for student in student_categories %}
+    <div class="col-md-3">
+    <div class="student_category_box">
+        <img src="{% static 'img/tsf.jpg' %}" alt="books" class="students_books">
+      <p class="student_count">{{ student.current_enroll.count }}</p>
+
+      <h1 class="student_category_name"><a href="{% url 'studentscategory' student.pk %} ">{{ student.current_enroll_name }}
+       </a></h1>
+    </div>
+
+    </div>
+    {% empty %}
+    <div class="alert alert-danger" role="alert">
+      there is no available student category... wait until added thank you!    
+      </div>
+    {% endfor %}
+
+  </div>
+      </div>
+</section>
+<!----- lastes news section---->
+<section class="latest_news_section">
+<div class="container">
+  <h3 class="latest_news_title">Latest Top 4 News</h3>
+  <div class="row justify-content-center">
+    {% for news in lastes_news %}
+    <div class="col-md-5 latest_news card">
+    <div class="card-body">
+   
+        <img src="{{ news.image.url }}" height="120" width="100%" alt="news image">
+        <h2 class="latest_news_heading"><a href="{% url 'news_details' news.pk %}"> {{ news.title }}</a></h2>
+    
+    </div>
+    </div>
+    {% empty %}
+    <div class="alert alert-danger" role="alert">
+      there is no available latest newws... wait until added thank you!    
+      </div>
+    {% endfor %}
+  </div>
+</div>
+</section>
+
+{% endblock %}

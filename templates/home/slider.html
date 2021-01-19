@@ -1,0 +1,21 @@
+{% load static %}
+<section class="slider-section">
+
+
+
+<div class="container">
+  <div class="row">
+      <div class="slider-owl-carousels owl-carousel">
+        {% for slider in sliders %}
+        <div class=" col-xs-3 text-center mr-3">
+          <img src="{{ slider.silder_image.url }}" class="silde_img" alt="First slide">
+          <div class="slider_caption">
+            <h2 class="slider_title">{{ slider.title }}</h2>
+          </div>
+        </div>
+      {% endfor %}
+     
+      </div>
+    </div>
+  </div>
+</section>

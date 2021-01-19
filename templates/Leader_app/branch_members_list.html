@@ -1,0 +1,39 @@
+
+
+
+{% extends 'home/base.html' %}
+{% load static %}
+{% block body %}
+<section class="branch_member_list_section">
+  <div class="container">
+    <div class="text-center">
+  <img src="{% static 'img/tsf.jpg' %}" alt="" class="tsf_logo"/ >
+  </div>
+  
+  
+   <h1 class="tsf_name_title">Tripura student Forum, BANGLADESH <br> Branch leader</h1>
+   <div class="text-center">
+    {% if user.is_superuser %}
+    <a href="{% url 'add_member_form' branch_member.id %}" class="btn btn-secondary"> Add Member</a>
+    {% endif %}
+   </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+  
+  {% for member in members %}
+  <div class="leader-box">
+    <img src="{{ member.photo.url }}" alt="Avatar" style="width:80px">
+    <p> <span> <a href="{% url 'branch_leader_details' member.pk %}">{{member.name }}</a></span></p>
+    <p>{{member.Posting }}</p>
+  </div>
+  {% empty %}
+  <div class="alert alert-danger" role="alert">
+    Not added yet..thank you    
+    </div>
+  {% endfor %}
+  </div>
+    </div>
+  </div>
+  
+</section>
+{% endblock %}

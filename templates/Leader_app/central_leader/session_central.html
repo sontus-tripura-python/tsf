@@ -1,0 +1,51 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block body %}
+
+<section class="central_year_section">
+  
+<div class="container">
+  <div class="text-center">
+<img src="{% static 'img/tsf.jpg' %}" alt="" class="tsf_logo"/ >
+</div>
+
+  <h1 class="tsf_name_title">Tripura student Forum, BANGLADESH <br> Central leader</h1>
+  {% if user.is_superuser %}
+  <div class="text-center p-4">
+      <a href="{% url 'central_year_form' %}" class="btn btn-primary"> Create year</a>
+        
+  </div>
+{% endif %}
+{% include 'home/messeage.html' %}
+  <div class="row justify-content-center">
+
+    {% for year in years %}
+
+      <div class="card central_year">
+        <div class="card-body">
+          <div class="text-center">
+            <img src="{% static 'img/calendar.jpg'%}" alt="" class="calendar_logo">
+          </div>
+          <h2 class="sessions_year">
+            <a href="{% url 'central_leader' year.pk %}" class="central_link">{{ year.yearname}}</a>
+          </h2>
+          {% if user.is_superuser %}
+          <a href="{% url 'central_year_update' year.pk %}" class="btn btn-danger">Update</a>
+          <a href="{% url 'central_year_delete' year.pk%}" class="btn btn-danger">
+            delete
+          </a>
+          {% endif %}
+
+        </div>
+      </div>
+      {% empty %}
+      <div class="alert alert-danger" role="alert">
+        Not added yet..thank you    
+        </div>
+
+{% endfor %}
+</div>
+  </div>
+
+</section>
+{% endblock %}

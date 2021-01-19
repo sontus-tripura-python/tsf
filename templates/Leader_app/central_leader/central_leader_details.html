@@ -1,0 +1,83 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="container">
+  <div class="text-center">
+<img src="{% static 'img/tsf.jpg' %}" alt="" class="tsf_logo"/ >
+</div>
+
+  <h1 class="tsf_name_title">Tripura student Forum, BANGLADESH <br> Central leader</h1>
+  <div class="row justify-content-center">
+<div class="col-md-8">
+  <div class="card central_leeader_detail_section">
+    <div class="card-body">
+{% if user.is_superuser %}
+<a href="{% url 'central_leader_update' centraldetail.pk %}" class="btn btn-info">Update</a>
+<a href="{% url 'central_leader_delete' centraldetail.pk %}" class="btn btn-danger">Delete</a>
+{% endif %}
+<div class="text-center">
+  <img src="{{centraldetail.photo.url }}" alt="" class="img-fluid leader_profile_pic">
+  <h2 class="leader_name">{{centraldetail.name }}</h2>
+  <h2 class="posting"> {{centraldetail.Posting }}</h2>
+</div>
+<ul class="list-group list_group">
+  <li class="list-group-item ">
+    <h2 class="title_name">Phone : <span class="name_of_profile">{{ centraldetail.phone }}</span></h2>
+
+  </li>
+</ul>
+<ul class="list-group list_group">
+  <li class="list-group-item ">
+    <h2 class="title_name">Blood Group : <span class="name_of_profile">{{centraldetail.blood_group }}</span></h2>
+
+  </li>
+</ul>
+<ul class="list-group list_group">
+  <li class="list-group-item ">
+    <h2 class="title_name">Current Enroll : <span class="name_of_profile">{{centraldetail.current_enroll }}</span></h2>
+
+  </li>
+</ul>
+<ul class="list-group list_group">
+  <li class="list-group-item ">
+    <h2 class="title_name">Gender : <span class="name_of_profile">{{ centraldetail.gender }}</span></h2>
+
+  </li>
+</ul>
+<ul class="list-group list_group">
+  <li class="list-group-item ">
+    <h2 class="title_name">District : <span class="name_of_profile">{{ centraldetail.district }}</span></h2>
+
+  </li>
+</ul>
+<ul class="list-group list_group">
+  <li class="list-group-item ">
+    <h2 class="title_name">Village : <span class="name_of_profile">{{ centraldetail.village }}</span></h2>
+
+  </li>
+</ul>
+<ul class="list-group list_group">
+  <li class="list-group-item ">
+    <h2 class="title_name">Thana : <span class="name_of_profile">{{ centraldetail.thana }}</span></h2>
+
+  </li>
+</ul>
+<ul class="list-group list_group">
+  <li class="list-group-item ">
+    <h2 class="social_link"> Follow :
+      <a href="{{centraldetail.facebook}}"><i class="fab fa-facebook-f fbcolor"></i></a>
+      <a href="{{ centraldetail.twitter}}"><i class="fab fa-twitter twittercolor"></i></a>
+      <a href="{{ centraldetail.instagram}}"><i class="fab fa-instagram instagramcolor"></i></a>
+       <a href="{{ centraldetail.linkdin}}"><i class="fab fa-linkedin-in link-IN "></i></a>
+    </h2>
+
+  </li>
+</ul>
+</div>
+</div>
+</div>
+  </div>
+</div>
+{% endblock %}

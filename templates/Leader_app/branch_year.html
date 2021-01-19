@@ -1,0 +1,43 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block body %}
+
+
+<section class="branch_year_list_section">
+  <div class="container">
+    <div class="text-center">
+  <img src="{% static 'img/tsf.jpg' %}" alt="" class="tsf_logo"/ >
+  </div>
+  
+    <h1 class="tsf_name_title">Tripura student Forum, BANGLADESH <br> Branch leader year</h1>
+    <div class="text-center">
+      {% if user.is_superuser %}
+        <a href="{% url 'branch_year_form' branch.id %}" class="btn btn-secondary"> create year</a>
+      {% endif %}
+    </div>
+  
+    <div class="row justify-content-center">
+  {% for year in branchyears %}
+      <div class="card central_year branchyears ">
+        <div class="card-body">
+          <div class="text-center">
+            <img src="{% static 'img/calendar.jpg'%}" alt="" class="calendar_logo">
+          </div>
+          <h2 class="sessions_year">
+      <a href="{% url 'branch_member' year.pk %}">{{ year.branchyear}}</a>
+          </h2>
+          {% if user.is_superuser %}
+         <a href="{% url 'branch_year_update' year.pk %}" class="btn btn-primary">Update</a>
+         <a href="{% url 'branch_year_delete' year.pk %}" class="btn btn-danger">Delete</a>
+         {% endif %}
+        </div>
+      </div>
+      {% empty %}
+      <div class="alert alert-danger" role="alert">
+        Not added yet..thank you    
+        </div>
+  {% endfor %}
+  </div>
+    </div>
+</section>
+{% endblock%}
