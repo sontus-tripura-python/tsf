@@ -29,3 +29,18 @@ class VedioComment(models.Model):
 
     def __str__(self):
         return f"{self.vedio} commented {self.comment}"
+
+class Audio(models.Model):
+    audio = models.FileField(upload_to='audio_file', validators=[FileExtensionValidator(allowed_extensions=['mp3'])])
+    thumbnail = models.FileField(upload_to='audio_thumbnail', validators=[FileExtensionValidator(allowed_extensions=['jpg', 'png', 'jpeg'])])
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200)
+    description= models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    tags = TaggableManager()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = "AUDIO"

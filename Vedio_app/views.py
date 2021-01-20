@@ -48,3 +48,11 @@ def vedio_details(request, slug):
     context = {'video': video, 'about_categories': about_categories, 
       'about_inform': about_inform, 'similiar_vedio': similiar_vedio, 'form': form }
     return render(request, 'vedio_app/video_details.html', context)
+
+
+
+
+def audio_list(request):
+    about_inform = TsfAboutSetting.objects.get(id=1)
+    context = {'about_inform': about_inform }
+    return render(request, 'audio/audio.html', context)

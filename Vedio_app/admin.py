@@ -6,3 +6,9 @@ from Vedio_app.models import *
 class VedioAdmin(admin.ModelAdmin):
     list_display = ['title']
     prepopulated_fields = {'slug': ('title',)}
+
+
+@admin.register(Audio)
+class AudioAdmin(admin.ModelAdmin):
+    list_display = ['title']
+    prepopulated_fields = {'slug': ('title',)}

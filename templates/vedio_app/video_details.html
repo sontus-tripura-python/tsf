@@ -9,10 +9,11 @@
          <div class=" col-md-8 card">
              <div class="card-body">
                  <h2 class="vedio_title">{{ video.title}}</h2>
+
                 <video controls autoplay>
                     <source src="{{ video.vedio.url}}" type="video/mp4">
                  
-                  </video> 
+                  </video>     
                   <a href="{{ video.vedio.url}}" class="btn btn-info">Download</a>
                   <a href="" class="btn btn-danger">Download Option still not fix</a>
                   <p>Description: {{ video.description|linebreaksbr}}</p>
@@ -24,11 +25,12 @@
              
                     {% for video in similiar_vedio %}
                     <div class="similiar_vedio_box">
-                     
-                      <video controls>
-                        <source src="{{ video.vedio.url}}" type="video/mp4">
-                     
-                      </video>
+                      <a href="{% url 'vedio_details' video.slug %}">
+                      <div>
+                        <img class="similiar_vedio_poster" src="{{ video.thumbnail.url }}" class="img-fluid" alt="">
+                      </div>
+                    </a>
+                    </a>
                       <a href="{% url 'vedio_details' video.slug %}">{{ video.title}}</a>
                     </div>
                     {% empty %}

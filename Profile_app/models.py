@@ -23,7 +23,7 @@ class Profile(models.Model):
     deparment = models.CharField(max_length=50, blank=True)
     current_enroll = models.ForeignKey(StudentCategory, on_delete=models.CASCADE, null=True, blank=True, related_name="current_enroll")
     religion = models.CharField(max_length=20, blank=True)
-    Class = models.CharField(max_length=10, blank=True)
+    Class = models.CharField(max_length=50, blank=True)
     Village = models.CharField(max_length=150, blank=True)
     thana = models.CharField(max_length=50, blank=True)
     phone = models.CharField(max_length=12, blank=True)
