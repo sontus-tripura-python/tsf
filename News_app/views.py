@@ -39,7 +39,8 @@ def news_details(request, pk):
             comment.user = request.user
             comment.news = news
             comment.save()
-            return HttpResponseRedirect(reverse('news_details', args=(news.pk)))
+            return HttpResponseRedirect(reverse('news_details', kwargs={'pk': news.pk}))
+        
     context = { 'news': news, 'about_inform':about_inform, 'form': form }
     return render(request, 'news_app/news_details.html', context)
 
@@ -52,7 +53,6 @@ def news_create(request):
             news = form.save(commit=False)
             news.author = request.user
             news.save()
-            # return HttpResponseRedirect(reverse('news_draft', args=(news.pk)))
             return redirect('news_draft')
             
     else:
@@ -77,8 +77,6 @@ def news_edit(request, pk):
     about_inform = TsfAboutSetting.objects.get(id=1)
     news = get_object_or_404(News, pk=pk)
     if request.method == 'POST':
-
-        # updating an existing form
         form = NewsForm(request.POST, instance=news)
 
         if form.is_valid():

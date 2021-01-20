@@ -21,9 +21,11 @@
 <a href="{% url 'news_delete' news.pk %}" class="btn btn-danger"
  onclick="return confirm('are you sure want to delete?')">Delete</a>
 {% endif %}
+    
       <h3>{{ news.title }}</h3>
         </div>
         <div class="card-body">
+          <img src="{{ news.image.url }}" alt="News image" class="news_image">
           <p>{{ news.news_description | safe}}</p>
         </div>
         <div class="card-footer">
