@@ -17,14 +17,15 @@
     <a href="{% url 'add_member_form' branch_member.id %}" class="btn btn-secondary"> Add Member</a>
     {% endif %}
    </div>
+   {% include 'home/messeage.html' %}
     <div class="row justify-content-center">
       <div class="col-md-6">
   
   {% for member in members %}
   <div class="leader-box">
     <img src="{{ member.photo.url }}" alt="Avatar" style="width:80px">
-    <p> <span> <a href="{% url 'branch_leader_details' member.pk %}">{{member.name }}</a></span></p>
-    <p>{{member.Posting }}</p>
+    <p> <span> <a href="{% url 'branch_leader_details' member.pk %}" class="branch_leader_name">{{member.name }}</a></span></p>
+    <p class="position_title_leadaer">{{member.Posting }}</p>
   </div>
   {% empty %}
   <div class="alert alert-danger" role="alert">

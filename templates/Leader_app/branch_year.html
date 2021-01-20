@@ -15,7 +15,7 @@
         <a href="{% url 'branch_year_form' branch.id %}" class="btn btn-secondary"> create year</a>
       {% endif %}
     </div>
-  
+    {% include 'home/messeage.html' %}
     <div class="row justify-content-center">
   {% for year in branchyears %}
       <div class="card central_year branchyears ">

@@ -8,7 +8,9 @@
   </div>
   
     <h1 class="tsf_name_title">Tripura student Forum, BANGLADESH <br> Central leader</h1>
+    {% if user.is_superuser %}
     <a href="{% url 'central_member_form' centralyear.pk %}" class="btn btn-primary"> Create Member</a>
+    {% endif %}
     {% include 'home/messeage.html' %}
     <div class="row justify-content-center">
   
@@ -16,9 +18,11 @@
   
   {% for member in centralLeader %}
   <div class="leader-box">
+    <a href="{% url 'central_leader_details' member.pk %}">
     <img src="{{ member.photo.url }}" alt="Avatar" style="width:80px">
-    <p> <span> <a href="{% url 'central_leader_details' member.pk %}">{{member.name }}</a></span></p>
-    <p>{{member.Posting }}</p>
+  </a>
+    <p> <span> <a href="{% url 'central_leader_details' member.pk %}" class="branch_leader_name">{{member.name }}</a></span></p>
+    <p class="position_title_leadaer">{{member.Posting }}</p>
   </div>
   {% empty %}
   <div class="alert alert-danger" role="alert">

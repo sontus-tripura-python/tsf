@@ -77,8 +77,8 @@ def branch_year_update(request, pk):
         if form.is_valid():
             form.save()
             messages.info(request, 'branch year has been updated successfully')
-            # return HttpResponseRedirect(reverse('branch_year', args=(year.pk,)))
-            return redirect('branch_name')
+            return HttpResponseRedirect(reverse('branch_year', args=(year.branches.pk,)))
+            # return redirect('branch_name')
     else:
         form = BranchYearForm(instance=year)
         context = {'form': form, 'year': year, 'about_inform':about_inform}
@@ -123,8 +123,8 @@ def member_details_update(request, pk):
         form = MemberAddForm(request.POST, request.FILES, instance=member)
         if form.is_valid():
             form.save()
-            # return redirect('branch_name')
-            return HttpResponseRedirect(reverse('branch_member', args=(member.pk,)))
+            messages.info(request, 'Branch leader has been updated successfully')
+            return HttpResponseRedirect(reverse('branch_member', args=(member.memberbranch.pk,)))
     else:
         form = MemberAddForm(instance=member)
     context = { 'form': form, 'about_inform':about_inform}
@@ -134,8 +134,8 @@ def branch_member_delete(request, pk):
     about_inform = TsfAboutSetting.objects.get(id=1)
     branchmember = get_object_or_404(BranchMember, pk=pk)
     branchmember.delete()
-    return redirect('branch_name')
-    # return HttpResponseRedirect(reverse('branch_member', args=(branchmember.branch_member.pk,)))
+    # return redirect('branch_name')
+    return HttpResponseRedirect(reverse('branch_member', args=(branchmember.branch_member.pk,)))
 
 def branch_leader_details(request, pk):
     about_inform = TsfAboutSetting.objects.get(id=1)
@@ -221,7 +221,9 @@ def central_leader_update(request, pk):
         form = CentralMemberForm(request.POST, request.FILES, instance=central_leader)
         if form.is_valid():
             form.save()
-            return redirect('central_years')
+            messages.info(request, 'Branch leader has been updated successfully')
+            # return redirect('central_years')
+            return HttpResponseRedirect(reverse('central_leader', args=(central_leader.session.pk,)))
     else:
         form = CentralMemberForm(instance=central_leader)
     context = {'form': form, 'central_leader': central_leader, 'about_inform':about_inform}
